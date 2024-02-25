@@ -38,7 +38,7 @@ const Main = () => {
             <p className='py-4 text-gray-600 max-w-[70%] m-auto'>
             I am a <span className='text-[#5196e5]'>Computer Science & Engineering</span> undergrad student from <span className='text-[#5196e5]'>United International University</span>.
             As a fresh graduate, i am constantly working on myself, trying my best to improve at problem solving as well as
-            software development. In this space, you'll find a curated collection of my work, reflecting my dedication towards 
+            software development. In this space, you&apos;ll find a curated collection of my work, reflecting my dedication towards 
             development.
             </p>
             <div className='flex item-center justify-between max-w-[330px] m-auto py-4'>
