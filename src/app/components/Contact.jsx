@@ -23,7 +23,7 @@ const Contact = () => {
             </a>
         </div>
       </div>
-      <h2 className='ml-16'>THANK YOU!</h2>
+      <h2 className='flex justify-center'>THANK YOU!</h2>
     </div>
   )
 }
