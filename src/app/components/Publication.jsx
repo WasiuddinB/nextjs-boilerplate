@@ -26,7 +26,7 @@ const Publication = () => {
               <span className='text-[#5196e5]'>Authors:</span> Abtahi Ahmed, Farzana Akter Nipa, Wasi Uddin Bhuyian, Khaled Md Mushfique and Dewan Md. Farid.
             </p>
             <p>
-              <span className='text-[#5196e5]'>Title:</span> Students' Performance Prediction Employing Decision Tree
+              <span className='text-[#5196e5]'>Title:</span> Students&apos; Performance Prediction Employing Decision Tree
             </p>
             <p>
               <span className='text-[#5196e5]'>Submitted:</span> International Conference on Intelligent Systems and Data Science (ISDS-2024)
