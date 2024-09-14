@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { MdEmail } from "react-icons/md";
 
 const handleEmailClick = () => {
   const email = 'wasiuddinbhuyian71@gmail.com';
@@ -19,7 +20,7 @@ const Contact = () => {
         <h2 className='py-4'>Get In Touch</h2>
         <div>
         <a className='cursor-pointer' onClick={handleEmailClick}>
-                  <p className='text-[#5196e5]'> Click here to Send an Email To Me: </p>
+                  <p className='text-[#5196e5]'> Click on the icon to Send an Email To Me: <MdEmail size={25} /> </p>
             </a>
         </div>
       </div>

@@ -19,17 +19,27 @@ const Publication = () => {
               <span className='text-[#5196e5]'>Title:</span> Harmonizing the Future: LSTM-Powered Precision in Software Development Effort Estimation with Harmony Search Symphony.
             </p>
             <p>
-              <span className='text-[#5196e5]'>Submitted:</span> EASE 2024, The 28th International Conference on Evaluation and Assessment in Software Engineering, 18–21 June, 2024, Salerno, Italy.
+              <span className='text-[#5196e5]'>Submitted:</span> 2024 13th International Conference on Software and Information Engineering
             </p>
             
             <p className='mt-8'>
               <span className='text-[#5196e5]'>Authors:</span> Abtahi Ahmed, Farzana Akter Nipa, Wasi Uddin Bhuyian, Khaled Md Mushfique and Dewan Md. Farid.
             </p>
             <p>
-              <span className='text-[#5196e5]'>Title:</span> Students’ Performance Prediction with Machine Learning.  
+              <span className='text-[#5196e5]'>Title:</span> Students' Performance Prediction Employing Decision Tree
             </p>
             <p>
-              <span className='text-[#5196e5]'>Submitted:</span> 6th International Conference on Electrical Engineering and Information & Communication Technology (ICEEICT), MIST, Bangladesh, 02-04 May, 2024.
+              <span className='text-[#5196e5]'>Submitted:</span> International Conference on Intelligent Systems and Data Science (ISDS-2024)
+            </p>
+
+            <p className='mt-8'>
+              <span className='text-[#5196e5]'>Authors:</span> Al-Momen Reyad, Sonjoy Dey, Wasi Uddin Bhuyian, Shadat Islam Evan and Raiyan Rahman.
+            </p>
+            <p>
+              <span className='text-[#5196e5]'>Title:</span> An Ensemble Deep Learning Approach to Detect Common Chicken Diseases from Fecal Matter Images
+            </p>
+            <p>
+              <span className='text-[#5196e5]'>Submitted:</span> International Conference on Computing Advancements (ICCA)
             </p>
             
         </div>
