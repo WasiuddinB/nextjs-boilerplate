@@ -3,40 +3,77 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div id='about' className='w-full md:h-screen p-2 flex items-center py-16'>
-      <div className='max-w-[1240px] m-auto md:grid grid-cols-3 gap-8'>
-        <div className='col-span-2'>
-            <p className='uppercase text-xl tracking-widest text-[#5196e5]'>
-              About
-            </p>
-            <h2 className='py-4'>
-              Know me better!
-            </h2>
-            <p className='py-2 text-gray-600'>
-              I am a CSE graduate. I have done my BSc from United International University <span className='text-[#5196e5]'>(UIU)</span>.
-              My journey in the world of technology has been both exhilarating and rewarding.
-              Throughout my academic journey, I&apos;ve had the privilege of receiving scholarships seven times, 
-              recognizing my dedication and achievements with awards ranging from 25% to full tuition coverage.
-              Eager to embark on a career as a Software Engineer, I am currently sharpening my skills through hands-on projects 
-              that span various frameworks and languages. My main focus is on Next.js and React, and I&apos;m actively participating 
-              in a comprehensive full-stack course at <span className='text-[#5196e5]'>CDIP</span> to deepen my expertise in the Next.js framework.
-            </p>
-            <p className='py-2 text-gray-600'>
-            My portfolio showcases a diverse array of projects, each reflecting my commitment to innovation and problem-solving.
-            From <span className='text-[#5196e5]'>PHP</span> to <span className='text-[#5196e5]'>JavaScript</span>, I&apos;ve been through the sophisticated world of software development, constantly pushing myself
-            to the boundaries of what&apos;s possible.
-            </p>
-            <p className='py-2 text-gray-600'>
-            In the pursuit of sharpening my problem-solving skills, I&apos;ve dedicated significant time to solving <span className='text-[#5196e5]'>LeetCode</span> problems. 
-            This consistent effort not only challenges me intellectually but also enhances my ability to approach complex coding 
-            challenges with confidence.
-            </p>
+    <section id='about' className='w-full bg-[#0a0a0a] py-32 px-6'>
+      <div className='max-w-6xl mx-auto'>
+
+        {/* Section label */}
+        <div className='flex items-center gap-4 mb-16'>
+          <span className='font-mono text-[#64ffda] text-sm'>01.</span>
+          <h2 className='text-white text-2xl font-bold'>About Me</h2>
+          <div className='flex-1 h-px bg-white/10 max-w-xs' />
         </div>
-        <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300'>
-            <Image className='rounded-xl' src='/potrait.jpg' width='350' height='0' alt='/'/>
+
+        <div className='grid md:grid-cols-5 gap-16 items-start'>
+          {/* Text — 3 cols */}
+          <div className='md:col-span-3 space-y-5 text-slate-400 leading-relaxed'>
+            <p>
+              I&apos;m a Computer Science graduate from{' '}
+              <span className='text-[#64ffda]'>United International University</span>, Dhaka, currently
+              working as a Junior Software Developer at{' '}
+              <span className='text-[#64ffda]'>Shomvob Technologies Ltd</span>. My journey in tech has
+              been driven by a genuine curiosity about how things are built and a desire to build them
+              better.
+            </p>
+            <p>
+              Throughout my academic career I was awarded scholarships seven times, ranging from 50% to full
+              tuition coverage for consistent academic excellence. I&apos;ve channelled that same discipline
+              into my professional work - shipping responsive interfaces, maintaining agile sprints, and
+              constantly picking up new tools.
+            </p>
+            <p>
+              Beyond my day job, I keep my algorithmic thinking sharp by solving problems on{' '}
+              <span className='text-[#64ffda]'>LeetCode</span> and I&apos;ve co-authored{' '}
+              <span className='text-[#64ffda]'>two published research papers</span> in machine learning
+              and software engineering estimation.
+            </p>
+
+            <div className='pt-4'>
+              <p className='text-slate-300 text-sm font-mono mb-4'>Technologies I work with:</p>
+              <ul className='grid grid-cols-2 gap-y-2 gap-x-6 text-sm font-mono'>
+                {[
+                  'JavaScript (ES6+)', 'TypeScript',
+                  'React & Next.js', 'Node.js',
+                  'PostgreSQL / MySQL', 'MongoDB',
+                  'Supabase', 'Tailwind CSS',
+                ].map((tech) => (
+                  <li key={tech} className='flex items-center gap-2 text-slate-400'>
+                    <span className='text-[#64ffda] text-xs'>▹</span>
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Photo — 2 cols */}
+          <div className='md:col-span-2 flex justify-center md:justify-end'>
+            <div className='relative group w-64 h-72'>
+              {/* Border accent */}
+              <div className='absolute inset-0 rounded-lg border-2 border-[#64ffda] translate-x-4 translate-y-4 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform duration-300' />
+              <div className='relative w-full h-full rounded-lg overflow-hidden bg-slate-800'>
+                <Image
+                  src='/LinkedIn.png'
+                  fill
+                  sizes='(max-width: 768px) 256px, 256px'
+                  alt='Wasi Uddin Bhuiyan'
+                  className='object-cover grayscale-0 hover:grayscale transition-all duration-500'
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

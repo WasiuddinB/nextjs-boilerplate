@@ -1,173 +1,62 @@
-import Image from 'next/image'
 import React from 'react'
+
+const skillGroups = [
+  {
+    category: 'Languages',
+    skills: ['JavaScript (ES6+)', 'TypeScript', 'Python', 'PHP'],
+  },
+  {
+    category: 'Frontend',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Bootstrap', 'HTML5', 'CSS3'],
+  },
+  {
+    category: 'Backend & APIs',
+    skills: ['Node.js', 'Express.js', 'Supabase', 'Prisma', 'REST APIs'],
+  },
+  {
+    category: 'Databases',
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firebase'],
+  },
+  {
+    category: 'Tools & Platforms',
+    skills: ['Git', 'GitHub', 'Jira', 'MkDocs', 'Vercel'],
+  }
+]
 
 const Skills = () => {
   return (
-    <div id='skills' className='w-full lg:h-screen p-2'>
-      <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
-        <p className='text-xl tracking-widest uppercase text-[#5196e5]'>Skills- Languages & Frameworks</p>
-        <h2 className='py-4'>Languages</h2>
-        
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <section id='skills' className='w-full bg-[#0d1117] py-32 px-6'>
+      <div className='max-w-6xl mx-auto'>
 
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/Cpp.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>C++</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/java.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>JAVA</h3>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/js.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>JavaScript</h3>
-                    </div>
-                </div>
-            </div>
+        {/* Section label */}
+        <div className='flex items-center gap-4 mb-16'>
+          <span className='font-mono text-[#64ffda] text-sm'>02.</span>
+          <h2 className='text-white text-2xl font-bold'>Skills</h2>
+          <div className='flex-1 h-px bg-white/10 max-w-xs' />
         </div>
 
-        <h2 className='py-4'>Frameworks-Database</h2>
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/next.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>Next.js</h3>
-                    </div>
-                </div>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {skillGroups.map((group) => (
+            <div
+              key={group.category}
+              className='group p-6 rounded-lg border border-white/5 bg-white/[0.02] hover:border-[#64ffda]/20 hover:bg-white/[0.04] transition-all duration-300'
+            >
+              <p className='font-mono text-[#64ffda] text-xs tracking-widest uppercase mb-4'>
+                {group.category}
+              </p>
+              <ul className='space-y-2'>
+                {group.skills.map((skill) => (
+                  <li key={skill} className='flex items-center gap-2 text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-200'>
+                    <span className='w-1 h-1 rounded-full bg-[#64ffda]/60 flex-shrink-0' />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/react.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>React</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/mysql.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>MySql</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 className='py-4'>Frontend</h2>
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/html.png' alt='/' width='50' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>HTML</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/css.png' alt='/' width='35' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>CSS</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/boot.jpg' alt='/' width='45' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>Bootstrap</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/tailwind.png' alt='/' width='80' height='20' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>Tailwind CSS</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 className='py-4'>Backend</h2>
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/php.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>PHP</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/node.png' alt='/' width='40' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>Node.js</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div className='p-6 shadow-xl rounded-xl hover:scale-105 ease-in duration-300'>
-                <div className='grid grid-cols-2 gap-4 justify-center items-center'>
-                    <div className='m-auto'>
-                        <Image src='/express.png' alt='/' width='55' height='0' />
-                    </div>
-                    <div className='flex flex-col items-center justify-center'>
-                        <h3>Express.js</h3>
-                    </div>
-                </div>
-            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
