@@ -7,8 +7,8 @@ import Publication from "./components/Publication";
 import Contact from "./components/Contact";
 
 export const metadata = {
-  title: 'Wasi Uddin Bhuiyan — Software Developer',
-  description: 'Portfolio of Wasi Uddin Bhuiyan, Junior Software Developer specialising in React, Next.js, and full-stack JavaScript.',
+  title: 'Wasi Uddin Bhuyian — Software Developer',
+  description: 'Portfolio of Wasi Uddin Bhuyian, Junior Software Developer specialising in React, Next.js, and full-stack JavaScript.',
 }
 
 export default function Home() {

@@ -34,7 +34,7 @@ const Contact = () => {
           </p>
 
           <a
-            href='mailto:wasiuddinbhuyian71@gmail.com?subject=Emailing%20to%20Wasi%20Uddin%20Bhuiyan&body=Assalamu%20alaikum%2C%20Hope%20you%20are%20doing%20well.'
+            href='mailto:wasiuddinbhuyian71@gmail.com?subject=Emailing%20to%20Wasi%20Uddin%20Bhuyian&body=Assalamu%20alaikum%2C%20Hope%20you%20are%20doing%20well.'
             className='inline-block px-8 py-4 border border-[#64ffda] text-[#64ffda] font-mono text-sm rounded hover:bg-[#64ffda]/10 transition-all duration-200 mb-16'
           >
             Say Hello →
@@ -61,7 +61,7 @@ const Contact = () => {
         <div className='mt-24 pt-8 border-t border-white/5'>
           <p className='text-slate-600 font-mono text-xs text-center'>
             Designed &amp; Built by{' '}
-            <span className='text-[#64ffda]'>Wasi Uddin Bhuiyan</span>
+            <span className='text-[#64ffda]'>Wasi Uddin Bhuyian</span>
           </p>
         </div>
       </div>

@@ -65,7 +65,7 @@ const About = () => {
                   src='/LinkedIn.png'
                   fill
                   sizes='(max-width: 768px) 256px, 256px'
-                  alt='Wasi Uddin Bhuiyan'
+                  alt='Wasi Uddin Bhuyian'
                   className='object-cover grayscale-0 hover:grayscale transition-all duration-500'
                 />
               </div>

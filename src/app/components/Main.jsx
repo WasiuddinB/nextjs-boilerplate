@@ -7,7 +7,7 @@ import Link from 'next/link'
 const socials = [
   { icon: <FaLinkedinIn size={18} />, href: 'https://www.linkedin.com/in/wasiuddinb/', label: 'LinkedIn' },
   { icon: <FaGithub size={18} />, href: 'https://www.github.com/WasiuddinB', label: 'GitHub' },
-  { icon: <AiOutlineMail size={18} />, href: 'mailto:wasiuddinbhuyian71@gmail.com?subject=Emailing%20to%20Wasi%20Uddin%20Bhuiyan&body=Assalamu%20alaikum%2C%20Hope%20you%20are%20doing%20well.', label: 'Email' },
+  { icon: <AiOutlineMail size={18} />, href: 'mailto:wasiuddinbhuyian71@gmail.com?subject=Emailing%20to%20Wasi%20Uddin%20Bhuyian&body=Assalamu%20alaikum%2C%20Hope%20you%20are%20doing%20well.', label: 'Email' },
   { icon: <FaCode size={18} />, href: 'https://www.leetcode.com/WasiuddinB/', label: 'LeetCode' },
 ]
 
@@ -83,7 +83,7 @@ const Main = () => {
           >
             Wasi Uddin
             <br />
-            <span className='text-slate-400'>Bhuiyan.</span>
+            <span className='text-slate-400'>Bhuyian.</span>
           </h1>
 
           <h2

@@ -54,7 +54,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href='/#home'>
             <span className='text-white font-bold text-lg tracking-tight'>
-              W<span className='text-[#64ffda]'>.</span>
+              WUB<span className='text-[#64ffda]'>.</span>
             </span>
           </Link>
 

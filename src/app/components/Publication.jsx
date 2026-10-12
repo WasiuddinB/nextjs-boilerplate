@@ -4,7 +4,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 const publications = [
   {
     title: "Students' Performance Prediction Employing Decision Tree",
-    authors: 'Abtahi Ahmed, Farzana Akter Nipa, Wasi Uddin Bhuiyan, Khaled Md Mushfique & Dewan Md. Farid',
+    authors: 'Abtahi Ahmed, Farzana Akter Nipa, Wasi Uddin Bhuyian, Khaled Md Mushfique & Dewan Md. Farid',
     venue: 'CTU Journal of Interdisciplinary Science and Design (ISDS-2024)',
     year: '2024',
     doi: 'https://doi.org/10.22144/ctujoisd.2024.321',
@@ -13,7 +13,7 @@ const publications = [
   },
   {
     title: 'An Ensemble Deep Learning Approach to Detect Common Chicken Diseases from Fecal Matter Images',
-    authors: 'Al-Momen Reyad, Sonjoy Dey, Wasi Uddin Bhuiyan, Shadat Islam Evan & Raiyan Rahman',
+    authors: 'Al-Momen Reyad, Sonjoy Dey, Wasi Uddin Bhuyian, Shadat Islam Evan & Raiyan Rahman',
     venue: 'ACM — International Conference on Computing Advancements (ICCA 2025)',
     year: '2025',
     doi: 'https://doi.org/10.1145/3723178.3723198',
@@ -22,7 +22,7 @@ const publications = [
   },
   {
     title: 'Harmonizing the Future: LSTM-Powered Precision in Software Development Effort Estimation with Harmony Search Symphony',
-    authors: 'Tamanna Shermin, Wasi Uddin Bhuiyan, Asif Uddin Ahmed, Latin Chakma, Nurzihan Fatema Reya & Abdullah Al Jobair',
+    authors: 'Tamanna Shermin, Wasi Uddin Bhuyian, Asif Uddin Ahmed, Latin Chakma, Nurzihan Fatema Reya & Abdullah Al Jobair',
     venue: '2024 13th International Conference on Software and Information Engineering (ICSIE)',
     year: '2024',
     doi: null,
