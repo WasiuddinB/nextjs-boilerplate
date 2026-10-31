@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaExternalLinkAlt } from 'react-icons/fa'
+import Section from './Section'
 
 const publications = [
   {
@@ -14,7 +14,7 @@ const publications = [
   {
     title: 'An Ensemble Deep Learning Approach to Detect Common Chicken Diseases from Fecal Matter Images',
     authors: 'Al-Momen Reyad, Sonjoy Dey, Wasi Uddin Bhuyian, Shadat Islam Evan & Raiyan Rahman',
-    venue: 'ACM — International Conference on Computing Advancements (ICCA 2025)',
+    venue: 'ACM - International Conference on Computing Advancements (ICCA 2025)',
     year: '2025',
     doi: 'https://doi.org/10.1145/3723178.3723198',
     doiLabel: '10.1145/3723178.3723198',
@@ -30,59 +30,56 @@ const publications = [
   },
 ]
 
+const OWN_NAME = 'Wasi Uddin Bhuyian'
+
+// Author list with this portfolio's owner picked out, as in a CV
+const Authors = ({ text }) =>
+  text.split(OWN_NAME).flatMap((part, i, parts) =>
+    i < parts.length - 1
+      ? [part, <span key={i} className='text-ink'>{OWN_NAME}</span>]
+      : [part]
+  )
+
 const Publication = () => {
+  // Newest first
+  const sorted = [...publications].sort((a, b) => Number(b.year) - Number(a.year))
+
   return (
-    <section id='publication' className='w-full bg-[#0d1117] py-32 px-6'>
-      <div className='max-w-6xl mx-auto'>
+    <Section id='publication' title='Publications'>
+      <ul className='divide-y divide-rule'>
+        {sorted.map((pub) => (
+          <li
+            key={pub.title}
+            className='grid gap-x-8 gap-y-2 py-8 first:pt-0 last:pb-0 sm:grid-cols-9'
+          >
+            <p className='meta sm:pt-1.5'>{pub.year}</p>
 
-        {/* Section label */}
-        <div className='flex items-center gap-4 mb-16'>
-          <span className='font-mono text-[#64ffda] text-sm'>04.</span>
-          <h2 className='text-white text-2xl font-bold'>Publications</h2>
-          <div className='flex-1 h-px bg-white/10 max-w-xs' />
-        </div>
+            <div className='sm:col-span-8'>
+              <h3 className='font-display text-xl md:text-2xl leading-snug text-ink'>{pub.title}</h3>
+              <p className='mt-3 text-sm'>
+                <Authors text={pub.authors} />
+              </p>
+              <p className='mt-1 text-sm italic text-ink-faint'>{pub.venue}</p>
 
-        <div className='space-y-6'>
-          {publications.map((pub, i) => (
-            <div
-              key={i}
-              className='group p-8 rounded-lg border border-white/5 bg-white/[0.02] hover:border-[#64ffda]/20 hover:bg-white/[0.04] transition-all duration-300'
-            >
-              <div className='flex flex-wrap gap-2 mb-4'>
-                {pub.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className='font-mono text-xs text-[#64ffda] bg-[#64ffda]/10 px-2 py-0.5 rounded'
-                  >
-                    {tag}
-                  </span>
-                ))}
-                <span className='font-mono text-xs text-slate-500 ml-auto'>{pub.year}</span>
-              </div>
-
-              <h3 className='text-white font-bold text-lg leading-snug mb-3 group-hover:text-[#64ffda] transition-colors duration-200'>
-                {pub.title}
-              </h3>
-
-              <p className='text-slate-500 text-sm mb-2'>{pub.authors}</p>
-              <p className='text-slate-400 text-sm italic mb-4'>{pub.venue}</p>
-
+              <p className='meta mt-4'>{pub.tags.join(', ')}</p>
               {pub.doi && (
-                <a
-                  href={pub.doi}
-                  target='_blank'
-                  rel='noreferrer'
-                  className='inline-flex items-center gap-2 font-mono text-xs text-slate-400 hover:text-[#64ffda] transition-colors duration-200'
-                >
-                  <FaExternalLinkAlt size={11} />
-                  DOI: {pub.doiLabel}
-                </a>
+                <p className='mt-2 text-sm'>
+                  <a
+                    href={pub.doi}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='link font-mono text-sm text-ink-soft'
+                  >
+                    DOI: {pub.doiLabel}
+                    <span aria-hidden='true'> ↗</span>
+                  </a>
+                </p>
               )}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </li>
+        ))}
+      </ul>
+    </Section>
   )
 }
 

@@ -6,28 +6,38 @@ html{
     scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html{
+        scroll-behavior: auto;
+    }
+}
+
 @layer base{
+    html{
+        color-scheme: dark;
+    }
+
     body{
-        @apply bg-[#f7fdfd] text-[#2d4a81] tracking-wide
+        @apply bg-canvas text-ink-soft antialiased leading-relaxed
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-bold
+    ::selection{
+        @apply bg-accent text-canvas
     }
 
-    h1{
-        @apply text-4xl sm:text-5xl md:text-6xl
+    :focus-visible{
+        @apply outline outline-2 outline-offset-4 outline-accent
+    }
+}
+
+@layer components{
+    /* Text link: underlined, the underline picks up the accent on hover */
+    .link{
+        @apply underline decoration-ink-faint decoration-1 underline-offset-[5px] transition-colors duration-200 hover:text-accent hover:decoration-accent
     }
 
-    h2{
-        @apply text-3xl sm:text-4xl
-    }
-
-    li {
-        @apply cursor-pointer
-    }
-
-    button{
-        @apply shadow-xl shadow-gray-600 rounded-xl uppercase bg-gradient-to-r from-[#4798c7] to-[#70bfff] text-white
+    /* Small metadata voice: years, stacks, DOIs, labels */
+    .meta{
+        @apply font-mono text-sm leading-relaxed text-ink-faint
     }
 }

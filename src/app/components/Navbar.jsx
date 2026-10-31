@@ -1,24 +1,20 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
-import { FaCode, FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { mailto, socials } from './links'
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
   { href: '/#about', label: 'About' },
+  { href: '/#work', label: 'Work' },
   { href: '/#skills', label: 'Skills' },
   { href: '/#projects', label: 'Projects' },
   { href: '/#publication', label: 'Publications' },
   { href: '/#contact', label: 'Contact' },
 ]
 
-const socials = [
-  { icon: <FaLinkedinIn size={16} />, href: 'https://www.linkedin.com/in/wasiuddinb/', label: 'LinkedIn' },
-  { icon: <FaGithub size={16} />, href: 'https://www.github.com/WasiuddinB', label: 'GitHub' },
-  { icon: <AiOutlineMail size={16} />, href: 'mailto:wasiuddinbhuyian71@gmail.com', label: 'Email' },
-  { icon: <FaCode size={16} />, href: 'https://www.leetcode.com/WasiuddinB/', label: 'LeetCode' },
-]
+const drawerLinks = [...socials, { href: mailto, label: 'Email' }]
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)
@@ -29,6 +25,11 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY >= 60)
       const sections = navLinks.map(l => l.href.replace('/#', ''))
+      // The last section can be too short to ever reach its own threshold
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        setActiveSection(sections[sections.length - 1])
+        return
+      }
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i])
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -37,42 +38,52 @@ const Navbar = () => {
         }
       }
     }
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // While the drawer is open: Escape closes it and the page behind doesn't scroll
+  useEffect(() => {
+    if (!nav) return
+    const onKey = (e) => e.key === 'Escape' && setNav(false)
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [nav])
 
   return (
     <>
       <nav
-        className={`fixed w-full z-[100] transition-all duration-500 ${
-          scrolled
-            ? 'bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5 py-4'
-            : 'bg-transparent py-6'
+        aria-label='Primary'
+        className={`fixed w-full z-[100] px-6 transition-colors duration-300 ${
+          scrolled ? 'bg-canvas border-b border-rule py-4' : 'bg-transparent border-b border-transparent py-6'
         }`}
       >
-        <div className='max-w-6xl mx-auto px-6 flex justify-between items-center'>
-          {/* Logo */}
-          <Link href='/#home'>
-            <span className='text-white font-bold text-lg tracking-tight'>
-              WUB<span className='text-[#64ffda]'>.</span>
-            </span>
+        <div className='max-w-6xl mx-auto flex justify-between items-center'>
+          <Link href='/#home' className='font-display text-lg text-ink'>
+            Wasi Uddin Bhuyian
           </Link>
 
-          {/* Desktop Nav */}
-          <ul className='hidden md:flex items-center gap-8'>
-            {navLinks.map((link, i) => {
+          {/* Desktop nav */}
+          <ul className='hidden md:flex items-center gap-6 lg:gap-8'>
+            {navLinks.map((link) => {
               const section = link.href.replace('/#', '')
+              const active = activeSection === section
               return (
-                <li key={i}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`text-sm font-mono transition-colors duration-200 ${
-                      activeSection === section
-                        ? 'text-[#64ffda]'
-                        : 'text-slate-400 hover:text-white'
+                    aria-current={active ? 'location' : undefined}
+                    className={`text-sm underline decoration-1 underline-offset-[6px] transition-colors duration-200 ${
+                      active
+                        ? 'text-ink decoration-accent'
+                        : 'text-ink-soft decoration-transparent hover:text-ink'
                     }`}
                   >
-                    <span className='text-[#64ffda] mr-1 text-xs'>0{i + 1}.</span>
                     {link.label}
                   </Link>
                 </li>
@@ -80,79 +91,68 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Mobile hamburger */}
+          {/* Mobile menu button */}
           <button
-            className='md:hidden text-slate-300 hover:text-white transition-colors'
+            className='md:hidden text-ink-soft hover:text-ink transition-colors'
             onClick={() => setNav(true)}
             aria-label='Open menu'
+            aria-expanded={nav}
           >
             <AiOutlineMenu size={22} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile drawer overlay */}
+      {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-[200] transition-opacity duration-300 ${
-          nav ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-[200] transition-[opacity,visibility] duration-300 ${
+          nav ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
+        <div className='absolute inset-0 bg-black/60' onClick={() => setNav(false)} />
         <div
-          className='absolute inset-0 bg-black/70 backdrop-blur-sm'
-          onClick={() => setNav(false)}
-        />
-        <div
-          className={`absolute right-0 top-0 h-full w-[75%] max-w-sm bg-[#0d1117] border-l border-white/10 p-8 flex flex-col transition-transform duration-500 ease-in-out ${
+          className={`absolute right-0 top-0 h-full w-[80%] max-w-sm bg-canvas border-l border-rule p-8 flex flex-col transition-transform duration-300 ease-out ${
             nav ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className='flex justify-between items-center mb-10'>
-            <span className='text-white font-bold text-lg'>
-              W<span className='text-[#64ffda]'>.</span>
-            </span>
+          <div className='flex justify-end mb-10'>
             <button
               onClick={() => setNav(false)}
-              className='text-slate-400 hover:text-white transition-colors'
+              className='text-ink-soft hover:text-ink transition-colors'
               aria-label='Close menu'
             >
               <AiOutlineClose size={20} />
             </button>
           </div>
 
-          <ul className='flex flex-col gap-6 flex-1'>
-            {navLinks.map((link, i) => (
-              <li key={i}>
+          <ul className='flex flex-col gap-5 flex-1'>
+            {navLinks.map((link) => (
+              <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setNav(false)}
-                  className='group flex items-center gap-3 text-slate-300 hover:text-white transition-colors'
+                  className='font-display text-3xl text-ink hover:text-accent transition-colors duration-200'
                 >
-                  <span className='text-[#64ffda] font-mono text-xs'>0{i + 1}.</span>
-                  <span className='text-base group-hover:translate-x-1 transition-transform duration-200'>
-                    {link.label}
-                  </span>
+                  {link.label}
                 </Link>
               </li>
             ))}
           </ul>
 
-          <div>
-            <p className='text-xs font-mono text-[#64ffda] tracking-widest mb-4 uppercase'>Connect</p>
-            <div className='flex gap-4'>
-              {socials.map((s, i) => (
+          <ul className='flex flex-wrap gap-x-6 gap-y-2 text-sm'>
+            {drawerLinks.map((s) => (
+              <li key={s.label}>
                 <a
-                  key={i}
                   href={s.href}
-                  target='_blank'
+                  target={s.href.startsWith('mailto:') ? undefined : '_blank'}
                   rel='noreferrer'
-                  aria-label={s.label}
-                  className='w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-[#64ffda] hover:border-[#64ffda]/40 transition-all duration-200'
+                  className='link text-ink-soft'
                 >
-                  {s.icon}
+                  {s.label}
                 </a>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
