@@ -8,7 +8,7 @@ const Main = () => {
       <div className='max-w-6xl mx-auto'>
         <div className='grid gap-x-8 gap-y-5 md:grid-cols-12'>
           <p className='font-display italic text-xl text-ink-faint md:col-span-3 md:pt-3'>
-            Assalamualaikum
+            AssalamuAlaikum
           </p>
 
           <div className='md:col-span-9'>
